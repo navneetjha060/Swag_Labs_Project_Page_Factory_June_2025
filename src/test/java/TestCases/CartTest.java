@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import BaseClass.BaseClass;
 import Pages.HomePage;
 import Pages.LoginPage;
+import Utils.Utils;
 
 
 public class CartTest extends BaseClass {
@@ -16,18 +17,19 @@ public class CartTest extends BaseClass {
 	// Create Page References
 	LoginPage loginPage;
 	HomePage homePage;
+	Utils utils;
 	
 
 	@BeforeMethod
 	public void initialization() throws IOException {
 		loginPage = new LoginPage(driver);
-
+		utils = new Utils(driver);
 	}
 
 	@Test
 	public void addProductToCart() throws InterruptedException {
 		homePage = loginPage.login("standard_user", "secret_sauce");
-
+		//utils.acceptAlert();
 		Thread.sleep(2000);
 		homePage.chooseBackPack();
 		homePage.clickAddToCart();
