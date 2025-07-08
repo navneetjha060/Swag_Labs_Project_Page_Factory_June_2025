@@ -38,5 +38,15 @@ public class LoginTest extends BaseClass {
 		boolean res=homePage.productsTextPresence();
 		Assert.assertTrue(res);
 	}
+	
+	@Test(dependsOnMethods = "loginTest")
+	public void logoutTest() {
+		homePage = loginPage.login("standard_user", "secret_sauce");
+		homePage.clickHamburgerMenu();
+		loginPage=homePage.clickLogout();
+		String logoText = loginPage.logoCheck();
+		String expectedLogoText = "Swag Labs";
+		Assert.assertEquals(logoText, expectedLogoText);
+	}
 
 }
