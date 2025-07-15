@@ -29,19 +29,18 @@ public class HomePage extends BaseClass {
 
 	@FindBy(id = "logout_sidebar_link")
 	WebElement logoutLink;
-	
+
 	@FindBy(xpath = "//div[text()='Sauce Labs Backpack']")
 	WebElement backPack;
-	
+
 	@FindBy(xpath = "//button[text()=\"Add to cart\"]")
 	WebElement addToCartBtn;
-	
+
 	@FindBy(xpath = "//a[@class='shopping_cart_link']")
 	WebElement cartIcon;
-	
+
 	@FindBy(xpath = "//div[@class='inventory_details_price']")
 	WebElement inventoryPrice;
-
 
 	// Actions
 
@@ -51,7 +50,9 @@ public class HomePage extends BaseClass {
 
 	public boolean productsTextPresence() {
 		return productsHeader.isDisplayed();
+		// Login Success check
 	}
+
 
 	public void clickHamburgerMenu() {
 		hamburgerMenu.click();
@@ -61,23 +62,22 @@ public class HomePage extends BaseClass {
 		logoutLink.click();
 		return new LoginPage(driver);
 	}
-	
+
 	public void chooseBackPack() {
 		backPack.click();
 	}
-	
+
 	public String backPackPrice() {
 		return inventoryPrice.getText();
 	}
-	
+
 	public void clickAddToCart() {
 		addToCartBtn.click();
 	}
-	
+
 	public CartPage clickOnCartIcon() {
 		cartIcon.click();
 		return new CartPage(driver);
 	}
-	
 
 }
