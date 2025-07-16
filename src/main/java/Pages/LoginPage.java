@@ -30,9 +30,6 @@ public class LoginPage extends BaseClass {
 	@FindBy(xpath = "//div[@class='login_logo']")
 	WebElement logo;
 
-	@FindBy(xpath = "//div[@class=\"error-message-container error\"]")
-	WebElement errorMessage;
-
 	// Actions
 
 	public String logoCheck() {
@@ -46,15 +43,6 @@ public class LoginPage extends BaseClass {
 		return new HomePage(driver);
 
 		// Page Chaining
-
-	}
-
-	public boolean lockedUserLogin(String Uname, String Pwd) {
-
-		username.sendKeys(Uname);
-		password.sendKeys(Pwd);
-		loginBtn.click();
-		return errorMessage.isDisplayed();
 
 	}
 
