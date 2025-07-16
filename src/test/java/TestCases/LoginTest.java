@@ -25,7 +25,7 @@ public class LoginTest extends BaseClass {
 	public void validateLogo() {
 
 		String logoText = loginPage.logoCheck();
-		String expectedLogoText = "Swag Labs";
+		String expectedLogoText = "Swag Lab";
 		Assert.assertEquals(logoText, expectedLogoText);
 	}
 
@@ -53,16 +53,8 @@ public class LoginTest extends BaseClass {
 	@Test(dataProviderClass = Utils.ReadExcelData.class, dataProvider = "loginUserNames")
 	public void multipleLoginTest(String Uname, String Pwd) {
 
-		if (Uname == "locked_out_user") {
-			boolean res = loginPage.lockedUserLogin(Uname, Pwd);
-			Assert.assertTrue(res);
-		}
-
-		else {
-			homePage = loginPage.login(Uname, Pwd);
-			boolean res = homePage.productsTextPresence();
-			Assert.assertTrue(res);
-		}
+		homePage = loginPage.login(Uname, Pwd);
+		boolean res = homePage.productsTextPresence();
+		Assert.assertTrue(res);
 	}
-
 }
