@@ -37,8 +37,9 @@ public class CartPage extends BaseClass {
 		return inventoryPrice.getText();
 	}
 	
-	public void clickCheckoutBtn() {
+	public  CheckoutPage clickCheckoutBtn() {
 		checkoutBtn.click();
+		return new CheckoutPage(driver);
 	}
 
 }
