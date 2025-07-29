@@ -18,33 +18,75 @@ public class CheckoutPage {
 	// WebElements
 	@FindBy(xpath = "//span[text()='Checkout: Your Information']")
 	WebElement checkoutBaner;
-	
-	@FindBy(id="first-name")
+
+	@FindBy(id = "first-name")
 	WebElement fName;
-	
-	@FindBy(id="last-name")
+
+	@FindBy(id = "last-name")
 	WebElement lName;
-	
-	@FindBy(id="postal-code")
+
+	@FindBy(id = "postal-code")
 	WebElement zip;
-	
-	@FindBy(id="continue")
+
+	@FindBy(id = "continue")
 	WebElement continueBtn;
+
+	@FindBy(xpath = "//span[text()='Checkout: Overview']")
+	WebElement checkoutOverviewLabel;
+
+	@FindBy(xpath = "//div[@class=\"inventory_item_name\"]")
+	WebElement inventoryName;
+
+	@FindBy(xpath = "//div[@class=\"inventory_item_price\"]")
+	WebElement inventoryPrice;
+
+	@FindBy(xpath = "//div[@class=\"summary_tax_label\"]")
+	WebElement tax;
+
+	@FindBy(xpath = "//div[@class=\"summary_total_label\"]")
+	WebElement totalPrice;
+
+	@FindBy(id = "finish")
+	WebElement finishBtn;
 
 	// Actions
 
 	public boolean validateCheckoutPage() {
 		return checkoutBaner.isDisplayed();
 	}
-	
-	public void enterDetails(String Fname , String Lname , String Zip) {
+
+	public void enterDetails(String Fname, String Lname, String Zip) {
 		fName.sendKeys(Fname);
 		lName.sendKeys(Lname);
 		zip.sendKeys(Zip);
 	}
-	
+
 	public void clickContinue() {
 		continueBtn.click();
+	}
+
+	public boolean validateCheckoutOverviewLabel() {
+		return checkoutOverviewLabel.isDisplayed();
+	}
+
+	public String returnInventoryName() {
+		return inventoryName.getText();
+	}
+
+	public String returnInventoryPrice() {
+		return inventoryPrice.getText();
+	}
+
+	public String returnTax() {
+		return tax.getText();
+	}
+
+	public String returnTotalPrice() {
+		return totalPrice.getText();
+	}
+
+	public void clickFinish() {
+		finishBtn.click();
 	}
 
 }
