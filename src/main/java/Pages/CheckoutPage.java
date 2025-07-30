@@ -48,6 +48,15 @@ public class CheckoutPage {
 
 	@FindBy(id = "finish")
 	WebElement finishBtn;
+	
+	@FindBy(xpath = "//span[text()='Checkout: Complete!']")
+	WebElement checkoutCompleteLabel;
+	
+	@FindBy(xpath = "//h2")
+	WebElement thanksForOrder;
+	
+	@FindBy(id="back-to-products")
+	WebElement backHomeBtn;
 
 	// Actions
 
@@ -87,6 +96,19 @@ public class CheckoutPage {
 
 	public void clickFinish() {
 		finishBtn.click();
+	}
+	
+	public boolean validateCheckoutComplete() {
+		return checkoutCompleteLabel.isDisplayed();
+	}
+	
+	public String validateThanksMessage() {
+		return thanksForOrder.getText();
+	}
+	
+	public HomePage clickBackHomeBtn() {
+		backHomeBtn.click();
+		return new HomePage(driver);
 	}
 
 }
