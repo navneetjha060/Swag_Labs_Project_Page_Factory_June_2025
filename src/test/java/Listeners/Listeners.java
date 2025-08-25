@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import Utils.captureScreenShot;
+
+
 
 
 
@@ -23,7 +26,15 @@ public class Listeners implements ITestListener {
 	}
 
 	public void onTestFailure(ITestResult result) {
+		
 		System.out.println("--------!!!!! Test Failed !!!!!!--------" + result.getName());
+		captureScreenShot ss = new captureScreenShot();
+		try {
+			ss.captureSS(result.getName());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
