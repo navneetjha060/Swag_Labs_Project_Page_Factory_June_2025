@@ -29,6 +29,9 @@ public class LoginPage extends BaseClass {
 
 	@FindBy(xpath = "//div[@class='login_logo']")
 	WebElement logo;
+	
+	@FindBy(xpath = "//h3[@data-test=\"error\"]")
+	WebElement loginError;
 
 	// Actions
 
@@ -44,6 +47,15 @@ public class LoginPage extends BaseClass {
 
 		// Page Chaining
 
+	}
+	
+	public boolean invalidLogin(String user, String pass) throws InterruptedException {
+		username.sendKeys(user);
+		password.sendKeys(pass);
+		loginBtn.click();
+		Thread.sleep(2000);
+		System.out.println(loginError.getText());
+		return loginError.isDisplayed();
 	}
 
 }

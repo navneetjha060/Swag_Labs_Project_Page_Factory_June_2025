@@ -57,4 +57,11 @@ public class LoginTest extends BaseClass {
 		boolean res = homePage.productsTextPresence();
 		Assert.assertTrue(res);
 	}
+	
+	@Test
+	public void invalidLoginTest() throws InterruptedException {
+		
+		boolean res=loginPage.invalidLogin("locked_out_user", "secret_sauce");
+		Assert.assertTrue(res);
+	}
 }
