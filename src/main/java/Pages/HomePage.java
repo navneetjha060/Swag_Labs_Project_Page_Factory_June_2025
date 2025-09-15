@@ -41,6 +41,9 @@ public class HomePage extends BaseClass {
 
 	@FindBy(xpath = "//div[@class='inventory_details_price']")
 	WebElement inventoryPrice;
+	
+	@FindBy(id="about_sidebar_link")
+	WebElement aboutLink;
 
 	// Actions
 
@@ -78,6 +81,11 @@ public class HomePage extends BaseClass {
 	public CartPage clickOnCartIcon() {
 		cartIcon.click();
 		return new CartPage(driver);
+	}
+	
+	public AboutPage clickAbout() {
+		aboutLink.click();
+		return new AboutPage(driver);
 	}
 
 }
